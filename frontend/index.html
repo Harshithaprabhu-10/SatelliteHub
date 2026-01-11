@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SatelliteHub - Dashboard</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">SatelliteHub</div>
+        <div class="nav">
+            <a href="index.html">Dashboard</a>
+            <a href="satellites.html">Catalog</a>
+            <a href="report.html">Reports</a>
+            <button class="button-primary" onclick="location.href='add.html'">+ Add Satellite</button>
+        </div>
+    </div>
+
+    <main style="padding: 50px;">
+        <h1 style="text-align: center;">SatelliteHub Dashboard</h1>
+        <p style="text-align: center;">Real-Time Satellite Data Monitoring & Insights</p>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <button class="button-primary" onclick="location.href='satellites.html'">View All Satellites →</button>
+            <button onclick="location.href='add.html'">Add New Satellite</button>
+        </div>
+
+        <hr>
+
+        <h2>Overview</h2>
+        <p>Quick statistics about your satellite database</p>
+
+       <div class="overview-grid">
+            <div class="card" style="flex: 1;">
+                <h3>Total Satellites</h3>
+                <p id="totalSatellites">0</p>
+                <small>In database</small>
+            </div>
+            <div class="card" style="flex: 1;">
+                <h3>Active Satellites</h3>
+                <p id="activeSatellites">0</p>
+                <small>Currently operational</small>
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>3D Orbital View</h2>
+        <p>Interactive visualization of satellites in orbit</p>
+
+ 
+<div class="card" style="
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 12px;
+">
+    <button class="button-primary" style="padding: 10px 22px; font-size: 16px;" onclick="location.href='globe.html'">
+        🌍 Open 3D Globe View
+    </button>
+</div>
+    </main>
+
+    <script src="./js/api.js"></script>
+    <script src="./js/dashboard.js"></script>
+</body>
+</html> 
+

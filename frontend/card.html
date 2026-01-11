@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Satellite Details</title>
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <style>
+        body {
+            background: #0f172a;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .blue-card {
+            position: relative;
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 40px;
+            background: #1e3a8a;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 8px 16px;
+            background: #00c9ff;
+            color: black;
+            font-weight: bold;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .info-row {
+            margin: 14px 0;
+            font-size: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 8px;
+        }
+
+        .label { font-weight: bold; color: #82eaff; }
+
+        .func-section-title {
+            margin-top: 30px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffe066;
+        }
+
+        .func-item {
+            margin-top: 10px;
+            padding: 14px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 10px;
+        }
+
+        .func-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 35px;
+            gap: 20px;
+        }
+
+        .edit-btn {
+            padding: 12px 22px;
+            background: #ffd43b;
+            color: black;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .delete-btn {
+            padding: 12px 22px;
+            background: #ff6b6b;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="detailsContainer" class="blue-card"></div>
+
+    <script src="./js/api.js"></script>
+    <script src="./js/card.js"></script>
+</body>
+</html>

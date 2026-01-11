@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Satellite</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+        .edit-container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #1b2a41;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+            color: white;
+        }
+        .edit-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 6px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            background: #1f4068;
+            border: 1px solid #3e5c76;
+            color: white;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .button-primary, .button-secondary {
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            border: none;
+        }
+        .button-primary {
+            background: #00c9ff;
+            color: black;
+        }
+        .button-secondary {
+            background: gray;
+            color: white;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="edit-container">
+    <div class="edit-title">Edit Satellite</div>
+
+    <form id="editForm">
+
+        <div class="form-group">
+            <label>Satellite Name</label>
+            <input id="satelliteName" type="text" disabled />
+        </div>
+
+        <div class="form-group">
+            <label>NORAD ID</label>
+            <input id="noradID" type="text" disabled />
+        </div>
+
+        <div class="form-group">
+            <label>Country</label>
+            <select id="country">
+                 <option value="India">India</option><option value="USA">USA</option>
+                    <option value="China">China</option><option value="Russia">Russia</option>
+                    <option value="Japan">Japan</option><option value="France">France</option>
+                    <option value="Europe">Europe (ESA)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Orbit Type</label>
+            <select id="orbitSelect">
+                 <option value="1">LEO</option>
+                    <option value="2">MEO</option>
+                    <option value="3">GEO</option>
+                    <option value="4">HEO</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Launch Date</label>
+            <input id="launchDate" type="date" />
+        </div>
+
+        <div class="form-group">
+            <label>Status</label>
+            <select id="status">
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Functionality Name</label>
+            <input id="functionName" placeholder="Enter functionality" />
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+            <textarea id="description" rows="3" placeholder="Add description"></textarea>
+        </div>
+
+        <div class="btn-container">
+            <button type="button" class="button-secondary" onclick="location.href='satellites.html'">Cancel</button>
+            <button type="submit" class="button-primary">Save Changes</button>
+        </div>
+    </form>
+</div>
+
+<script src="./js/api.js"></script>
+<script src="./js/edit.js"></script>
+</body>
+</html>

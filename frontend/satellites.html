@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SatelliteHub - Catalog</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+    <style>
+        /* ===============================
+           TABLE
+        =============================== */
+        .satellite-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .satellite-table th,
+        .satellite-table td {
+            padding: 12px;
+            border-bottom: 1px solid #3e5c76;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .satellite-table th {
+            background-color: #2a3a5a;
+            color: #00c9ff;
+        }
+
+        /* ===============================
+           STATUS BADGES
+        =============================== */
+        .status-active,
+        .status-inactive {
+            display: inline-block;
+            min-width: 72px;
+            text-align: center;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .status-active {
+            background-color: #00c9ff;
+            color: #020617;
+        }
+
+        .status-inactive {
+            background-color: #e53e3e;
+            color: #ffffff;
+        }
+
+        /* ===============================
+           FILTER BUTTONS
+        =============================== */
+        .button-filter {
+            padding: 6px 12px;
+            background-color: #1f4068;
+            border: 1px solid #3e5c76;
+            color: white;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .button-filter:hover {
+            background-color: #00c9ff;
+            color: #020617;
+        }
+
+        /* ===============================
+           CONTROLS LAYOUT
+        =============================== */
+        .catalog-controls {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .catalog-controls > div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .catalog-controls input {
+            padding: 10px;
+            width: 280px;
+            background: #1f4068;
+            border: 1px solid #3e5c76;
+            color: white;
+            border-radius: 4px;
+        }
+
+        /* ===============================
+           TABLE RESPONSIVE
+        =============================== */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        /* ===============================
+           MOBILE
+        =============================== */
+        @media (max-width: 768px) {
+            .catalog-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .catalog-controls input {
+                width: 100%;
+            }
+
+            .catalog-controls > div {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <div class="logo">SatelliteHub</div>
+    <div class="nav">
+        <a href="index.html">Dashboard</a>
+        <a href="satellites.html" class="active">Catalog</a>
+        <a href="report.html">Reports</a>
+        <button class="button-primary" onclick="location.href='add.html'">
+            + Add Satellite
+        </button>
+    </div>
+</div>
+
+<main style="padding: 30px;">
+    <h1>Satellite Catalog</h1>
+    <p>Browse and manage your satellite database</p>
+
+    <!-- CONTROLS -->
+    <div class="catalog-controls">
+
+        <!-- SEARCH -->
+        <input id="searchInput" type="text" placeholder="Search satellites...">
+
+        <!-- ORBIT FILTER -->
+        <div>
+            <label>Orbit:</label>
+            <button class="button-filter orbit-filter" data-orbit="ALL">All</button>
+            <button class="button-filter orbit-filter" data-orbit="LEO">LEO</button>
+            <button class="button-filter orbit-filter" data-orbit="MEO">MEO</button>
+            <button class="button-filter orbit-filter" data-orbit="GEO">GEO</button>
+            <button class="button-filter orbit-filter" data-orbit="HEO">HEO</button>
+        </div>
+
+        <!-- STATUS FILTER -->
+        <div>
+            <label>Status:</label>
+            <button class="button-filter status-filter" data-status="ALL">All</button>
+            <button class="button-filter status-filter" data-status="Active">Active</button>
+            <button class="button-filter status-filter" data-status="Inactive">Inactive</button>
+        </div>
+
+        <!-- ACTIONS -->
+        <div>
+            <button onclick="location.href='add.html'">+ Add</button>
+            <button id="exportBtn">Export CSV</button>
+        </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-wrapper">
+        <table class="satellite-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>NORAD ID</th>
+                    <th>Orbit</th>
+                    <th>Status</th>
+                    <th>Launch Date</th>
+                    <th>Country</th>
+                    <th>View</th>
+                </tr>
+            </thead>
+            <tbody id="satelliteTableBody"></tbody>
+        </table>
+    </div>
+</main>
+
+<script src="./js/api.js"></script>
+<script src="./js/satellites.js"></script>
+
+</body>
+</html>

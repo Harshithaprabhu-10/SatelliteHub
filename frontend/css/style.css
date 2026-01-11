@@ -1,0 +1,405 @@
+/* style.css */
+
+/* --- 1. Global Reset & Body Styles --- */
+
+:root {
+    /* Primary Colors (Matching the Screenshots) */
+    --color-bg-dark: #12121e; /* Darkest Background */
+    --color-bg-card: #1f2738; /* Card Background */
+    --color-text-primary: #ffffff; /* Main Text */
+    --color-text-secondary: #a0aec0; /* Subtext/Description */
+    --color-blue-primary: #00bcd4; /* Bright/Accent Blue (Buttons, Active Status) */
+    --color-blue-secondary: #3182ce; /* Link/Hover Blue */
+    --color-border: #3d465a; /* Separator/Border line */
+    --color-red-inactive: #e53e3e; /* Inactive Status */
+    
+    /* Spacing */
+    --spacing-xs: 8px;
+    --spacing-sm: 15px;
+    --spacing-md: 25px;
+    --spacing-lg: 40px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+main {
+    padding: var(--spacing-lg);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    color: var(--color-text-primary);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+/* --- 2. Header & Navigation --- */
+
+.header {
+    background-color: var(--color-bg-card);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-blue-primary);
+}
+
+.nav a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    margin-left: var(--spacing-md);
+    font-weight: 500;
+    padding: 5px;
+    transition: color 0.3s;
+}
+
+.nav a:hover, .nav a.active {
+    color: var(--color-text-primary);
+    border-bottom: 2px solid var(--color-blue-primary);
+}
+
+/* --- 3. Buttons & Actions --- */
+
+button, .button-primary {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    margin-left: var(--spacing-xs);
+    font-size: 1rem;
+}
+
+.button-primary {
+    background-color: var(--color-blue-primary);
+    color: var(--color-bg-dark);
+}
+
+.button-primary:hover {
+    background-color: #008c9e; /* Darker primary */
+}
+
+button:not(.button-primary) {
+    background-color: var(--color-border);
+    color: var(--color-text-primary);
+}
+
+button:not(.button-primary):hover {
+    background-color: #5a6478;
+}
+
+/* --- 4. Cards & Overview (Dashboard/Reports) --- */
+
+.card {
+    background-color: var(--color-bg-card);
+    padding: var(--spacing-md);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: var(--spacing-lg);
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.overview-grid .card h3 {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.overview-grid .card p {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-blue-primary);
+    margin-bottom: 0;
+}
+
+.orbital-view-placeholder {
+    height: 400px;
+    background-color: #162447; /* Slightly different dark shade for contrast */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+}
+
+
+/* --- 5. Forms (Add Satellite Page) --- */
+
+.add-form {
+    max-width: 600px;
+    margin: var(--spacing-lg) auto;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+input[type="text"], 
+input[type="date"], 
+select, 
+textarea {
+    width: 100%;
+    padding: 10px;
+    background: var(--color-bg-dark);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    border-radius: 4px;
+    transition: border-color 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--color-blue-secondary);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Radio Button Styling */
+.form-group input[type="radio"] {
+    width: auto;
+    margin-right: 5px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+/* --- 6. Catalog/Table Styles --- */
+
+.catalog-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.filter-group label {
+    margin-right: var(--spacing-xs);
+    font-weight: 500;
+}
+
+.filter-group button {
+    padding: 6px 12px;
+    margin: 0 4px;
+}
+
+.satellite-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.satellite-table th, .satellite-table td {
+    padding: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-border);
+    text-align: left;
+}
+
+.satellite-table th {
+    background-color: #1a202c; /* Slightly darker header */
+    font-weight: 600;
+    color: var(--color-blue-primary);
+    cursor: pointer;
+}
+
+/* Status Badges */
+.status-active {
+    color: var(--color-bg-dark);
+    background-color: var(--color-blue-primary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.status-inactive {
+    color: var(--color-text-primary);
+    background-color: var(--color-red-inactive);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+/* Action icons in table */
+.satellite-table td button {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    margin-left: 5px;
+    padding: 5px;
+}
+
+/* --- 7. Report Chart Placeholders --- */
+
+.chart-placeholder {
+    height: 350px;
+    background-color: #162447; 
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-text-secondary);
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+.func-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background: #14213d;
+}
+.func-table th, .func-table td {
+    border: 1px solid #3e5c76;
+    padding: 10px;
+    color: white;
+}
+.func-table th {
+    background: #2a3a5a;
+}
+/* ===============================
+   RESPONSIVE DESIGN
+================================ */
+
+/* ---------- Tablets (≤ 1024px) ---------- */
+@media (max-width: 1024px) {
+
+    main {
+        padding: var(--spacing-md);
+    }
+
+    .overview-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav a {
+        margin-left: var(--spacing-sm);
+    }
+}
+
+/* ---------- Mobile (≤ 768px) ---------- */
+@media (max-width: 768px) {
+
+    /* Header */
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .nav {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .nav a {
+        margin-left: 0;
+    }
+
+    /* Buttons full width */
+    .button-primary,
+    button {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    /* Overview cards */
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Forms */
+    .add-form {
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* Tables */
+    .satellite-table {
+        font-size: 0.9rem;
+    }
+
+    .satellite-table th,
+    .satellite-table td {
+        padding: 10px;
+    }
+
+    /* Charts */
+    .chart-placeholder {
+        height: 250px;
+        font-size: 1rem;
+    }
+}
+
+/* ---------- Small Phones (≤ 480px) ---------- */
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    /* Make tables scrollable */
+    .table-wrapper {
+        overflow-x: auto;
+    }
+}
